@@ -1,4 +1,4 @@
-Thanks for downloading this template!
+customized template run
 
 Template Name: iPortfolio
 Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
