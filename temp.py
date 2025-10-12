@@ -1,5 +1,5 @@
 import os
-
+import random
 '''
 <div class = "col-lg-4 col-md-6 portfolio-item isotope-item filter-wedding" >
    <div class = "portfolio-content h-100" >
@@ -32,19 +32,19 @@ def generate_portfolio_items(base_dir="assets/portfolio"):
                 thumb_src = thumb_path if os.path.exists(
                     thumb_path) else img_path
                 html = f'''
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item {category_class}">
+<div class="col-lg-4 col-md-6 col-sm-6 portfolio-item isotope-item {category_class}">
    <div class="portfolio-content h-100">
         <img src="{thumb_src}" class="img-fluid" alt="">
         <div class="portfolio-info">
             <h4>{category}</h4>
             <p>{file}</p>
             <a href="{img_path}" title="{category}" data-gallery="portfolio-gallery-{category.lower()}" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
         </div>
     </div>
 </div>
 '''
                 html_sections.append(html)
+    random.shuffle(html_sections)
     return "\n".join(html_sections)
 
 
