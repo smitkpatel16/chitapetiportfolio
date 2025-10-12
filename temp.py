@@ -32,7 +32,7 @@ def generate_portfolio_items(base_dir="assets/portfolio"):
                 thumb_src = thumb_path if os.path.exists(
                     thumb_path) else img_path
                 html = f'''
-<div class="col-lg-4 col-md-6 col-sm-6 portfolio-item isotope-item {category_class}">
+<div class="col-lg-3 col-md-4 col-sm-4 portfolio-item isotope-item {category_class}">
    <div class="portfolio-content h-100">
         <img src="{thumb_src}" class="img-fluid" alt="">
         <div class="portfolio-info">
