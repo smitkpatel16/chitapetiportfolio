@@ -25,10 +25,16 @@ def generate_portfolio_items(base_dir="assets/portfolio"):
                     os.sep)[0] if os.sep in rel_dir else rel_dir
                 category_class = f"filter-{category.lower().replace(' ', '-')}"
                 img_path = os.path.join(root, file).replace("\\", "/")
+                # Assume thumbnails are in a 'thumbnails' subfolder with the same filename
+                thumb_path = img_path.replace(
+                    "assets/portfolio", "assets/thumbnails")
+                # If thumbnail doesn't exist, fallback to original image
+                thumb_src = thumb_path if os.path.exists(
+                    thumb_path) else img_path
                 html = f'''
 <div class="col-lg-4 col-md-6 portfolio-item isotope-item {category_class}">
    <div class="portfolio-content h-100">
-        <img src="{img_path}" class="img-fluid" alt="">
+        <img src="{thumb_src}" class="img-fluid" alt="">
         <div class="portfolio-info">
             <h4>{category}</h4>
             <p>{file}</p>
